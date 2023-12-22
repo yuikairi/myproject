@@ -1,0 +1,198 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="ja"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<title>playful|小牧市のアイアン家具｜キャンプ用品 &mdash; 雑貨やオーダー家具も取扱中</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="小牧市アイアン家具｜キャンプ用品ならプレイフルへ">
+	<meta name="keywords" content="小牧市、家具、キャンプ、雑貨、オーダー"/>
+	<meta name="author" content="山崎唯衣" />
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="playful|小牧市のアイアン家具｜キャンプ用品"/>
+	<meta property="og:image" content="https://playful-sennari.com/images/IMG_1801.JPG"/>
+	<meta property="og:url" content="https://playful-sennari.com"/>
+	<meta property="og:site_name" content="playful"/>
+	<meta property="og:description" content="愛知県小牧市にある千成工業株式会社が手がけるNEWブランド、「playful」は、
+	製造業ということを生かしたアイアン×木材など、オリジナリティ溢れる製品を製作しています。"/>
+	<meta name="twitter:title" content="playful|小牧市のアイアン家具、キャンプ用品" />
+	<meta name="twitter:image" content="https://playful-sennari.com/images/IMG_1801.JPG" />
+	<meta name="twitter:url" content="https://twitter.com/sennariaichi" />
+	<meta name="twitter:card" content="summary Card" />
+	<meta name="twitter:site" content="@sennariaichi" />
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+	<!-- Modernizr JS -->
+<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+
+	</head>
+	<body>
+	<div class="box-wrap">
+		<header role="banner" id="fh5co-header">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="fh5co-navbar-brand">
+								<a class="fh5co-logo" href="index.html">playful</a>
+							</div>
+						</div>
+						<div class="col-md-9 main-nav">
+							<ul class="nav text-right">
+							<li><a href="{% url 'myapp:index' %}">Home</a></li>
+							<li><a href="{% url 'myapp:cart' %}">Service</a></li>
+							<li><a href="{% url 'myapp:item' %}">Products</a></li>
+							<li><a href="{% url 'myapp:camp' %}">About</a></li>
+							<li><a href="{% url 'myapp:new' %}">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+		  </div>
+		</header>
+	<style>
+    /* コンテナに関するスタイル */
+.container {
+    max-width: 1200px; /* コンテナの最大幅 */
+    margin: 0 auto; /* 中央揃え */
+    padding: 0 15px; /* 左右の内側の余白 */
+    box-sizing: border-box; /* 内側の余白とボーダーを幅に含める */
+}
+
+/* 商品情報に関するスタイル */
+.product-info {
+    text-align: center; /* 中央揃え */
+    word-wrap: break-word; /* 単語の途中で改行 */
+    overflow-wrap: break-word; /* 長い単語を折り返す */
+}
+
+/* 画像に関するスタイル */
+.img-responsive, .product-image img {
+    max-width: 100%; /* 画像の最大幅をコンテナに合わせる */
+    height: auto; /* 高さを自動調整 */
+    display: block; /* 余白を排除するためにブロック要素として表示 */
+}
+
+/* レスポンシブ対応 */
+@media (min-width: 768px) {
+    .product-container {
+        flex-direction: row; /* 横並びにする */
+        justify-content: space-between; /* 要素の間に適切なスペースを設定 */
+    }
+    .product-info, .product-image {
+        flex: 1; /* flexアイテムとして等しく領域を占めるように */
+        padding: 15px; /* 内側の余白を設定 */
+    }
+}
+
+/* 一覧に戻るリンクのスタイル */
+.return-link {
+    text-align: center; /* 中央揃え */
+    margin-top: 20px; /* リンクの上の余白 */
+}
+.product-images img {
+    max-width: 100%; /* Ensures the image is never wider than its container */
+    height: auto; /* Keeps the aspect ratio of the image */
+    display: block; /* Prevents inline spacing issues */
+    margin-bottom: 15px; /* Adds some space below each image */
+}
+
+.product-info p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+    .product-info {
+        padding: 0 10px; /* モバイルビューでのサイドパディング */
+    }
+    .product-container {
+        flex-direction: column; /* スタックレイアウト */
+    }
+    /* その他のモバイルビューのスタイル調整 */
+}
+
+</style>
+</head>
+<body>
+ <div class="container">
+    <div class="product-container">
+		 <div class="product-info">      
+        </div>
+				 <h3>{{ product.name }}</h3>
+            <figure>
+                 {% if product.main_image %}
+            <img src="{{ product.main_image.url }}" alt="{{ product.name }}" class="img-responsive">
+        {% endif %}
+				</div>
+			<div class="product-images">
+    {% for image in images %}
+        <img src="{{ image.image.url }}" alt="{{ product.name }}" class="img-fluid">
+    {% endfor %}
+</div>
+				 <p>{{ product.description }}</p>
+				 <p>サイズ: {{ product.size }}</p>
+            <p>価格: ¥{{ product.price|floatformat:"0" }}</p>
+
+						{% if product.cart_id %}
+            <script type='text/javascript' src='https://playful.shop-pro.jp/?mode=cartjs&pid={{ product.cart_id }}&style=normal_gray&name=y&img=y&expl=n&stock=n&price=y&optview=n&inq=y&sk=y' charset='euc-jp'></script>
+        {% endif %}
+	 </div>
+	 <!-- 一覧に戻るリンク -->
+        <div class="return-link">
+            <a href="{% url 'myapp:item' %}">一覧に戻る</a>
+        </div>
+ </div>
+<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p>playful presented by sennari &copy; 2021.<a href="https://playful-sennari.com/index.html">playful</a>. All Rights Reserved.
+								<br>毎日を楽しく<i class="icon-heart3 love"></i> <a href="cart.html" target="_blank">プライバシーポリシー</a> / 必ずお読みください<a href="cart.html" target="_blank">特定商取引法に基づく表記</a></p>
+							<p class="fh5co-social-icons">
+								<a href="https://twitter.com/sennariaichi"><i class="icon-twitter-with-circle"></i></a>
+								<a href="https://www.facebook.com/sennarikougyou/photos/pcb.1775779699260892/1775779582594237/"><i class="icon-facebook-with-circle"></i></a>
+								<a href="https://www.instagram.com/p/CSLl-EOLw5t/?utm_source=ig_web_copy_link"><i class="icon-instagram-with-circle"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- END: box-wrap -->
+	<!-- jQuery -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- jQuery Easing -->
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Owl carousel -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- Waypoints -->
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<!-- Parallax Stellar -->
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+
+<!-- Main JS (Do not remove) -->
+<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="ja"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<title>playful|お問合わせ</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="小牧市アイアン家具｜キャンプ用品ならプレイフルへ">
+	<meta name="keywords" content="小牧市、家具、キャンプ、雑貨、オーダー"/>
+	<meta name="author" content="山崎唯衣" />
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="playful|小牧市のアイアン家具｜キャンプ用品"/>
+	<meta property="og:image" content="https://playful-sennari.com/images/IMG_1801.JPG"/>
+	<meta property="og:url" content="https://playful-sennari.com"/>
+	<meta property="og:site_name" content="playful"/>
+	<meta property="og:description" content="愛知県小牧市にある千成工業株式会社が手がけるNEWブランド、「playful」は、
+	製造業ということを生かしたアイアン×木材など、オリジナリティ溢れる製品を製作しています。"/>
+	<meta name="twitter:title" content="playful|小牧市のアイアン家具、キャンプ用品" />
+	<meta name="twitter:image" content="https://playful-sennari.com/images/IMG_1801.JPG" />
+	<meta name="twitter:url" content="https://twitter.com/sennariaichi" />
+	<meta name="twitter:card" content="summary Card" />
+	<meta name="twitter:site" content="@sennariaichi" />
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+	<!-- Modernizr JS -->
+<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+	<div class="box-wrap">
+		<header role="banner" id="fh5co-header">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="fh5co-navbar-brand">
+								<a class="fh5co-logo" href="index.html">playful</a>
+							</div>
+						</div>
+						<div class="col-md-9 main-nav">
+							<ul class="nav text-right">
+							<li><a href="{% url 'myapp:index' %}"><span>Home</span></a></li>
+							<li><a href="{% url 'myapp:cart' %}">Service</a></li>
+							<li><a href="{% url 'myapp:item' %}">Products</a></li>
+							<li><a href="{% url 'myapp:camp' %}">About</a></li>
+							<li class="active"><a href="{% url 'myapp:new' %}">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+		  </div>
+		</header>
+		<!-- END: header -->
+		<div id="fh5co-intro-section" class="section-overlay animate-box" data-animate-effect="fadeIn">
+			<div class="fh5co-intro-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({% static 'images/intro.jpg' %});">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 float-overlay">
+							<h2>お問い合わせ</h2>
+							<h3>playful　presented by sennari</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END fh5co-intro-section -->
+		<div id="fh5co-contact-section">
+			<div class="container">
+				<div class="col-md-4 animate-box">
+					<h3 class="section-title">Address</h3>
+					<p>playful　presented by sennari</p>
+					<ul class="contact-info">
+						<li><i class="icon-location-pin"></i>愛知県小牧市高根2丁目489-1</li>
+						<li><i class="icon-phone2"></i>+ 0568656211</li>
+						<li><i class="icon-mail"></i><a href="https://playful.shop-pro.jp/secure/?mode=inq&shop_back_url=https%3A%2F%2Fplayful.shop-pro.jp%2F&shop_id=PA01475316">s-sennari@aichi.jp</a></li>
+						<li><i class="icon-globe2"></i><a href="https://playful-sennari.com">https://playful-sennari.com</a></li>
+					</ul>
+				</div>
+				<!--<div class="col-md-8 animate-box">
+					<form action="#">
+						<div class="form-group row">
+							<div class="col-md-6 field">
+								<label for="firstname">苗字</label>
+								<input type="text" name="FName" id="firstname" class="form-control">
+							</div>
+							<div class="col-md-6 field">
+								<label for="lastname">お名前</label>
+								<input type="text" name="FName" id="lastname" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-6 field">
+								<label for="email">Email</label>
+								<input type="text" name="FName" id="email" class="form-control">
+							</div>
+							<div class="col-md-6 field">
+								<label for="phone">Phone</label>
+								<input type="text" name="FName" id="phone" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12 field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12 field">
+								<input type="submit" id="submit" class="btn btn-primary" value="Send Message">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>!-->
+
+		<!-- END map -->
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p>playful presented by sennari &copy; 2021.<a href="https://playful-sennari.com/index.html">playful</a>. All Rights Reserved.
+								<br>毎日を楽しく<i class="icon-heart3 love"></i> <a href="cart.html" target="_blank">プライバシーポリシー</a> / 必ずお読みください<a href="cart.html" target="_blank">特定商取引法に基づく表記</a></p>
+							<p class="fh5co-social-icons">
+								<a href="https://twitter.com/sennariaichi"><i class="icon-twitter-with-circle"></i></a>
+								<a href="https://www.facebook.com/sennarikougyou/photos/pcb.1775779699260892/1775779582594237/"><i class="icon-facebook-with-circle"></i></a>
+								<a href="https://www.instagram.com/p/CSLl-EOLw5t/?utm_source=ig_web_copy_link"><i class="icon-instagram-with-circle"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- END: box-wrap -->
+
+	<!-- jQuery -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- jQuery Easing -->
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Owl carousel -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- Waypoints -->
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<!-- Parallax Stellar -->
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+
+<!-- Main JS (Do not remove) -->
+<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>
