@@ -3,7 +3,7 @@
 import multiprocessing
 
 bind = '0.0.0.0:8080'  # アプリケーションがリッスンするIPアドレスとポート
-workers = multiprocessing.cpu_count() + 1  # ワーカープロセスの数（CPUのコア数に応じて調整）
+workers = multiprocessing.cpu_count()
 
 # Djangoアプリケーションのディレクトリを指定
 chdir = '/Users/yamazakiyuii/Documents/playful-sennari/myproject'# WSGIアプリケーションのエントリーポイントを指定
