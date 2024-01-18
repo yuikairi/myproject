@@ -15,7 +15,7 @@ STATIC_ROOT = '/var/www/html/'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['playful-sennari.com', 'localhost', '127.0.0.1']
 
 
 CSRF_COOKIE_SECURE = True
