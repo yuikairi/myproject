@@ -1,9 +1,7 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="ja"> <!--<![endif]-->
+<html lang="ja">
 	<head>
 	<meta charset="utf-8">
 	<title>playful|小牧市のアイアン家具｜キャンプ用品 &mdash; 雑貨やオーダー家具も取扱中</title>
@@ -37,18 +35,10 @@
 	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
-
-
-	<!-- Modernizr JS -->
-<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
+	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<meta name="google-site-verification" content="WYM76uMRFhOMsvEdyOqJLWVfci-XascFwHmekjhWoE0" />
 	</head>
+
 	<body>
 	<div class="box-wrap">
 		<header role="banner" id="fh5co-header">
@@ -74,13 +64,134 @@
 		  </div>
 		</header>
 		<!-- END: header -->
-		<div class="owl-carousel owl-carousel1 owl-carousel-fullwidth fh5co-light-arrow animate-box" data-animate-effect="fadeIn">
-			<div class="item"><!--<a href="images/img_large_1.jpg" class="image-popup">!--><img src="{% static 'images/IMG_9248.JPG' %}" alt="カフェ"><!--</a>!--></div>
-			<div class="item"><!--<a href="images/img_large_2.jpg" class="image-popup">!--><img src="{% static 'images/u.jpg' %}" alt="ランタン"><!--</a>!--></div>
-			<div class="item"><!--<a href="images/img_large_3.jpg" class="image-popup">!--><img src="{% static 'images/IMG_9229.JPG' %}"alt="ダイニングテーブル"><!--</a>!--></div>
-			<div class="item"><!--<a href="images/img_large_4.jpg" class="image-popup">!--><img src="{% static 'images/k1.jpg' %}" alt="image"><!--</a>!--></div>
-			<div class="item"><!--<a href="images/img_large_5.jpg" class="image-popup">!--><img src="{% static 'images/IMG_9236.JPG' %}" alt="image"><!--</a>!--></div>
-		</div>
+<style>
+    .product-image {
+        margin-top: 20px; /* 画像の上部に適切な余白を追加 */
+    }
+    .product-name {
+        font-weight: bold;
+        font-size: 1.1em; /* 必要に応じてサイズを調整 */
+    }
+    .header-search-form {
+        text-align: right; /* 検索窓を右揃えにする */
+    }
+		.no-bullet {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-offset-6 col-md-6 col-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-search-form">
+                        <form method="GET" action="{% url 'myapp:product_search' %}">
+                            <input type="text" name="q" placeholder="Enter Search Keyword" value="{{ request.GET.q }}" id="intry">
+                            <input type="submit" value="Search" class="button_1" id="sub1">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            {% if results %}
+            <div class="row">
+                {% for product in results %}
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="row">
+                        {% if forloop.counter0|divisibleby:2 %}
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <img src="{{ product.main_image.url }}" alt="{{ product.name }}" class="product-image">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="desc">
+                                <ul>
+                                    <li><a href="{% url 'myapp:product_detail' product.id %}"><span class="product-name">{{ product.name }}</span></a> - <br>{{ product.short_description }}</li>
+                                    <li>サイズ: {{ product.size }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <!-- 左側のカテゴリリスト -->
+        <div class="col-lg-3 col-md-4 category-list">
+            <ul class="no-bullet">
+               
+                    <li>
+                        <p><i class="fa fa-folder"></i>#CAMP #OUTDOOR <br>#インテリア</p>
+                    </li>
+               
+                
+                <!-- 商品リスト -->
+                {% for product in products %}
+                    <li>
+                        <a href="{% url 'myapp:product_detail' product.id %}">
+                            <img src="{{ product.main_image.url }}" alt="{{ product.name }}" class="product-icon" width="50" height="50" style="margin-bottom: 10px;">
+                            {{ product.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+
+        <!-- おすすめアイテム -->
+        <div class="col-lg-9 col-md-8">
+            <h2>おすすめアイテム</h2>
+             <div class="owl-carousel owl-carousel1 owl-carousel-fullwidth fh5co-light-arrow animate-box" data-animate-effect="fadeIn">
+                <div class="item">
+                    <img src="{% static 'images/IMG_9248.JPG' %}" alt="カフェ">
+                    <div class="item-text">
+                        <h3>マルチディスプレイラック</h3>
+                        <p>木とアイアンが絶妙なバランスでマルチな使い方ができる！</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static 'images/IMG_9223.JPG' %}" alt="ランタン">
+                    <div class="item-text">
+                        <h3>アイアンラック</h3>
+                        <p>オシャレなデザイン家電のテイストを邪魔しない、スッキリとしたフォルムのアイアンラック。</p>
+                    </div>
+                </div>
+                 <div class="item">
+                    <img src="{% static 'images/IMG_9229.JPG' %}" alt="ランタン">
+                    <div class="item-text">
+                        <h3>ほしだな</h3>
+                        <p>星をモチーフにしたオリジナルのアイアン製棚</p>
+                    </div>
+                </div>
+								 <div class="item">
+                    <img src="{% static 'images/IMG_9236.JPG' %}" alt="グリルプレート">
+                    <div class="item-text">
+                        <h3>究極のグリルプレート</h3>
+                        <p>完璧なシーズニングでくっつかない！ゴシゴシ洗える！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+		
+		
+			<hr>
 		<div id="fh5co-media-section">
 			<div class="container">
 				<div class="row animate-box">
@@ -91,100 +202,37 @@
             いっぱいになっている状態のこと」を指します。playfulでは、お客様一人一人が使用する度にドキドキワクワクできる、そんな商品の製作を心がけています。</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-7 animate-box">
-						<div class="fh5co-cover" style="background-image: url({% static 'images/IMG_9224.JPG' %});">
-							<div class="desc">
-								<p>キャンプをより快適に！オシャレなデザインで安定感抜群のキャンプテーブル！軽量コンパクトで持ち運び簡単！キャンプやピクニックで活躍！ #キャンプ #アウトドア</p>
-								<span>camp table</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-5">
-						<div class="fh5co-cover">
-							<div class="fh5co-cover-hero animate-box">
-								<div class="fh5co-cover-thumb" style="background-image: url({% static 'images/bar.jpg' %});"></div>
-								<div class="desc-thumb">
-									<p>玄関では、傘かけになり、お部屋でドライフラワーをかけたり。どんな雰囲気にも染まるシンプルさが可愛いマルチバー.</p>
-									<span>mulch Bar</span>
-								</div>
-							</div>
+<hr>
 
-							<div class="fh5co-cover-hero animate-box">
-								<div class="fh5co-cover-thumb" style="background-image: url({% static 'images/te1.JPG' %});"></div>
-								<div class="desc-thumb">
-									<p>テンセングリティ構造を応用した無重力テーブル。明度を落とすことでマテリアルの質感が際立ち重厚感が増します。</p>
-									<span>テンセングリティ　Table</span>
-								</div>
-							</div>
-
-							<div class="fh5co-cover-hero animate-box">
-								<div class="fh5co-cover-thumb" style="background-image: url({% static 'images/IMG_1802.JPG' %});"></div>
-								<div class="desc-thumb">
-									<p>1台で2役でこの商品はバーベキュー網をのせ、炭火でバーベキューできます。お好きな食材を網の上に載せて焼けます。バーベキュー網を外して薪を燃やせば、焚き火台としても使用できます。キャンプ場などで直火が禁止の場所でストーブとして使えます。</p>
-									<span>焚火台　スマート</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END fh5co-media-section -->
-		<div id="fh5co-intro-section">
-			<div class="fh5co-intro-cover text-center animate-box" data-animate-effect="fadeIn" data-stellar-background-ratio="0.5" style="background-image: url({% static 'images/IMG_9229.JPG' %});"></div>
-				<p>星型のアイアンがおしゃれなシェルフ。</p>
-			</div>
-		<!-- END fh5co-intro-section -->
-		<div id="fh5co-product-section">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Products</h3>
-						<p>playful-遊び心-楽しい-最高</p>
-					</div>
-				</div>
-				<div class="owl-carousel owl-carousel2">
-    <div class="item animate-box">
-        <img src="{% static 'images/te1.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/bar.jpg' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/hi.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9238.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9248.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9229.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/tai.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9245.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_1800.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9232.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/katori.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9231.JPG' %}" alt="image">
-    </div>
-    <div class="item animate-box">
-        <img src="{% static 'images/IMG_9251.JPG' %}" alt="image">
+    <div class="row">
+        <!-- キャンプテーブルのおすすめ記事 -->
+        <div class="col-md-6 col-md-offset-3 animate-box">
+            <div class="fh5co-cover position-relative" style="background-image: url({% static 'images/IMG_9224.JPG' %});">
+                <div class="desc text-center position-absolute w-100">
+                    <p>キャンプをより快適に！オシャレなデザインで安定感抜群のキャンプテーブル！軽量コンパクトで持ち運び簡単！キャンプやピクニックで活躍！ #キャンプ #アウトドア</p>
+                    <span>camp table</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- キャンプ用品のおすすめ記事 -->
+        <div class="col-md-6 col-md-offset-3 animate-box">
+            <div class="fh5co-cover position-relative" style="background-image: url({% static 'images/IMG_9232.JPG' %});">
+                <div class="desc text-center position-absolute w-100">
+                    <p>キャンプ用品もおすすめ！最新のアウトドアギアや便利グッズを紹介！キャンプを楽しむためのアイデア満載！ #キャンプ #アウトドア</p>
+                    <span>camp gear</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+					
+		
+		<!-- END fh5co-intro-section -->
+	
 
 		</div>
 		<!-- END fh5co-product-section -->
